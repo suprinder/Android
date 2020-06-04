@@ -1,5 +1,6 @@
 package com.example.testexercise_livedata
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,10 +9,11 @@ import kotlin.random.Random
 
 class RandomGenerator: ViewModel(){
 
-      var randomNumber: String? = null
+     private var randomNumber: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getNumber(): String?{
-        if(randomNumber == null) {
+    fun getNumber(): MutableLiveData<String>{
+        Log.i("suprinder","Get number")
+        if(randomNumber == null){
             createNumber()
         }
             return randomNumber
@@ -19,10 +21,15 @@ class RandomGenerator: ViewModel(){
     }
 
     fun createNumber() {
-
+        Log.i("suprinder","Create number")
         val number = (1..10).random()
-        randomNumber = "Number is : ${number}"
+        randomNumber.value = "Number is : ${number}"
 
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("suprinder", "ViewModel destroyed")
     }
 }
 
