@@ -7,12 +7,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlin.random.Random
 
-class RandomGenerator: ViewModel(){
+class RandomGeneratorModel: ViewModel(){
 
+    companion object {
+        private val TAG: String? = RandomGeneratorModel::class.simpleName
+    }
      private var randomNumber: MutableLiveData<String> = MutableLiveData<String>()
 
     fun getNumber(): MutableLiveData<String>{
-        Log.i("suprinder","Get number")
+        Log.i(TAG,"Get number")
         if(randomNumber == null){
             createNumber()
         }
@@ -21,7 +24,7 @@ class RandomGenerator: ViewModel(){
     }
 
     fun createNumber() {
-        Log.i("suprinder","Create number")
+        Log.i(TAG,"Create number")
         val number = (1..10).random()
         randomNumber.value = "Number is : ${number}"
 
@@ -29,7 +32,7 @@ class RandomGenerator: ViewModel(){
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("suprinder", "ViewModel destroyed")
+        Log.i(TAG, "ViewModel destroyed")
     }
 }
 
