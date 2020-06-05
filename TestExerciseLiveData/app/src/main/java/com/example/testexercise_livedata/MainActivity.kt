@@ -18,9 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val model = ViewModelProvider(this).get(RandomGeneratorModel::class.java)
-        var randomNumber: LiveData<String> = model.getNumber()
 
-        randomNumber.observe(this, Observer { s -> textView.text = s })
+        model.getNumber().observe(this, Observer { s -> textView.text = s })
 
         button.setOnClickListener {
             model.createNumber()
