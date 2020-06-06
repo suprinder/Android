@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             textView.text = new
         }
 
-        model.randomNumber.observe(this, nameObserver)
+        model.liveData.observe(this, nameObserver)
 
         button.setOnClickListener {
             model.createNumber()

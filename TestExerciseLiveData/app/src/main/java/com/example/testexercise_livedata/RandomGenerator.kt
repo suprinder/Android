@@ -17,6 +17,8 @@ class RandomGeneratorModel: ViewModel(){
           MutableLiveData<String>()
       }
 
+    val liveData: LiveData<String> get() = randomNumber
+
     fun getNumber(): MutableLiveData<String>{
         Log.i(TAG,"Get number")
         if(randomNumber == null){
