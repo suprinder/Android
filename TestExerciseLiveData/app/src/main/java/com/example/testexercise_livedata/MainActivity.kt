@@ -19,7 +19,11 @@ class MainActivity : AppCompatActivity() {
 
         val model = ViewModelProvider(this).get(RandomGeneratorModel::class.java)
 
-        model.getNumber().observe(this, Observer { s -> textView.text = s })
+        val nameObserver = Observer<String> { new ->
+            textView.text = new
+        }
+
+        model.randomNumber.observe(this, nameObserver)
 
         button.setOnClickListener {
             model.createNumber()

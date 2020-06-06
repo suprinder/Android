@@ -12,7 +12,10 @@ class RandomGeneratorModel: ViewModel(){
     companion object {
         private val TAG: String? = RandomGeneratorModel::class.simpleName
     }
-     private var randomNumber: MutableLiveData<String> = MutableLiveData<String>()
+
+      val randomNumber: MutableLiveData<String> by lazy  {
+          MutableLiveData<String>()
+      }
 
     fun getNumber(): MutableLiveData<String>{
         Log.i(TAG,"Get number")
