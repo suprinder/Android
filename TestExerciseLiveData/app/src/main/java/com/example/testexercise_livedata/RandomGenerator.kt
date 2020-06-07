@@ -13,7 +13,7 @@ class RandomGeneratorModel: ViewModel(){
         private val TAG: String? = RandomGeneratorModel::class.simpleName
     }
 
-      val randomNumber: MutableLiveData<String> by lazy  {
+      private val randomNumber: MutableLiveData<String> by lazy  {
           MutableLiveData<String>()
       }
 
