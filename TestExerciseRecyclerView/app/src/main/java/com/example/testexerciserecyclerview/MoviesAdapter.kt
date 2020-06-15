@@ -37,5 +37,4 @@ class MoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapter<Movie
         holder.movieItem.text = movie.name
         Log.i(TAG,"onBindViewHolder")
     }
-
 }

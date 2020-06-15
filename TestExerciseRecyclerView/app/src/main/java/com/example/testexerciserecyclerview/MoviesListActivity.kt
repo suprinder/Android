@@ -17,14 +17,9 @@ class MoviesListActivity: AppCompatActivity() {
 
         setContentView(R.layout.movies_list)
 
-
         movies = Movie.getMovies(50)
         val adapter = MoviesAdapter(movies)
         moviesRecyclerView.adapter = adapter
         moviesRecyclerView.layoutManager = LinearLayoutManager(this)
-
-
-
-
     }
 }
